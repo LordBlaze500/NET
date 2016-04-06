@@ -41,7 +41,6 @@ namespace Shop.Controllers
         {
             if (ModelState.IsValid)
             {
-                //model.PromotionedDate = DateTime.Now;
                 this._db.Promotions.Add(model);
                 this._db.SaveChanges();
                 TempData["message"] = "Dodano zmówienie.";
@@ -51,6 +50,22 @@ namespace Shop.Controllers
             {
                 return View(model);
             }
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            Promotion Promotion = _db.Promotions.Find(id);
+            _db.Promotions.Remove(Promotion);
+            _db.SaveChanges();
+            return RedirectToAction("List");
+        }
+
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            Promotion Promotion = _db.Promotions.Find(id);
+            return View(Promotion);
         }
 
     }
