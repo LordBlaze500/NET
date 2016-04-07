@@ -16,5 +16,6 @@ namespace Shop.Models
         public DbSet<Promotion> Promotions { get; set; }
         public DbSet<Products> Products { get; set; }
         public DbSet<Kategoria> Kategorie { get; set; }
+        public DbSet<News> News { get; set; }
     }
 }
