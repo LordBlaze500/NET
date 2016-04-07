@@ -53,5 +53,14 @@ namespace Shop.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            News n = _db.News.Find(id);
+            _db.News.Remove(n);
+            _db.SaveChanges();
+            return RedirectToAction("List");
+        }
+
     }
 }
