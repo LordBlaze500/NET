@@ -329,6 +329,7 @@
     <Content Include="Views\Promotion\List.cshtml" />
     <Content Include="Views\News\Add.cshtml" />
     <Content Include="Views\News\List.cshtml" />
+    <Content Include="Views\Promotion\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
