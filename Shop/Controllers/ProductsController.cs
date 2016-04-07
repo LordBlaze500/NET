@@ -53,5 +53,15 @@ namespace Shop.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            Products movie = _db.Products.Find(id);
+            _db.Products.Remove(movie);
+            _db.SaveChanges();
+
+            return RedirectToAction("List");
+        }
+
     }
 }
