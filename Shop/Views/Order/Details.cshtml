@@ -1,0 +1,57 @@
+﻿@model Shop.Models.Order
+
+@{
+    ViewBag.Title = "Szczegóły";
+}
+
+<h2>Szczegóły</h2>
+
+<fieldset>
+    <legend>Zamówienie</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProductName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Quantity)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Quantity)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Phone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OrderedDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrderedDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ShippingDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ShippingDate)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edytuj", "Edytuj", new { id=Model.Id }) |
+    @Html.ActionLink("Lista", "list")
+</p>
