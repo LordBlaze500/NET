@@ -43,7 +43,33 @@ namespace Shop.Controllers
             {
                 this._db.Promotions.Add(model);
                 this._db.SaveChanges();
-                TempData["message"] = "Dodano zmówienie.";
+                TempData["message"] = "Dodano promocję.";
+                return RedirectToAction("list");
+            }
+            else
+            {
+                return View(model);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            Promotion Promotion = _db.Promotions.Find(id);
+            return View(Promotion);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Promotion model)
+        {
+            if (ModelState.IsValid)
+            {
+                int id = (int)model.Id;
+                Promotion Promotion = this._db.Promotions.Find(id);
+                _db.Promotions.Remove(Promotion);
+                this._db.Promotions.Add(model);
+                this._db.SaveChanges();
+                TempData["message"] = "Edytowano promocję.";
                 return RedirectToAction("list");
             }
             else
