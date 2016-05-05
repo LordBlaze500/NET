@@ -332,6 +332,7 @@
     <Content Include="Views\Promotion\Details.cshtml" />
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Promotion\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
