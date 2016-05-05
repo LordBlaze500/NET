@@ -63,5 +63,37 @@ namespace Shop.Controllers
             return RedirectToAction("List");
         }
 
+
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            Order order = _db.Orders.Find(id);
+            return View(order);
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            Order order = _db.Orders.Find(id);
+            return View(order);
+        }
+
+        [HttpPost, ActionName("Edit")]
+        public ActionResult EditPost(int id)
+        {
+            Order order = _db.Orders.Find(id);
+            if (TryUpdateModel(order, "",
+                new string[] { "ProductName", "Quantity", "Phone", "Email", "ShippingDate" }))
+            {
+                this._db.SaveChanges();
+                TempData["message"] = "Zedytowano zmówienie.";
+                return RedirectToAction("list");
+            }
+            else
+            {
+                return View(order);
+            }
+        }
+
     }
 }
