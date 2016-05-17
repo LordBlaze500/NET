@@ -1,0 +1,68 @@
+﻿@model Shop.Models.Complaint
+
+@{
+    ViewBag.Title = "Edytuj reklamację";
+}
+
+<h2>Edytuj reklamację</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Reklamacja</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProductCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProductCode)
+            @Html.ValidationMessageFor(model => model.ProductCode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SaleDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SaleDate)
+            @Html.ValidationMessageFor(model => model.SaleDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Invoice)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Invoice)
+            @Html.ValidationMessageFor(model => model.Invoice)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProductName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProductName)
+            @Html.ValidationMessageFor(model => model.ProductName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DamageDesc)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.DamageDesc)
+            @Html.ValidationMessageFor(model => model.DamageDesc)
+        </div>
+
+        <p>
+            <input type="submit" value="Zapisz" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Lista", "List")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

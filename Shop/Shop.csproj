@@ -185,9 +185,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ComplaintApiController.cs" />
+    <Compile Include="Controllers\ComplaintController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KategoriaController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\OrderApiController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\PromotionController.cs" />
@@ -196,6 +199,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Complaint.cs" />
     <Compile Include="Models\Kategoria.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Order.cs" />
@@ -335,6 +339,10 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Promotion\Edit.cshtml" />
+    <Content Include="Views\Complaint\List.cshtml" />
+    <Content Include="Views\Complaint\Add.cshtml" />
+    <Content Include="Views\Complaint\Edit.cshtml" />
+    <Content Include="Views\Complaint\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
