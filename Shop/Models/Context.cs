@@ -17,5 +17,6 @@ namespace Shop.Models
         public DbSet<Products> Products { get; set; }
         public DbSet<Kategoria> Kategorie { get; set; }
         public DbSet<News> News { get; set; }
+        public DbSet<Leaflet> Leaflets { get; set; }
     }
 }
