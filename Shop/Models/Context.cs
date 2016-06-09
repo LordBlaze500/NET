@@ -15,6 +15,7 @@ namespace Shop.Models
         public DbSet<Order> Orders { get; set; }
         public DbSet<Promotion> Promotions { get; set; }
         public DbSet<Products> Products { get; set; }
+        public DbSet<Producer> Producer { get; set; }
         public DbSet<Kategoria> Kategorie { get; set; }
         public DbSet<News> News { get; set; }
         public DbSet<Leaflet> Leaflets { get; set; }
