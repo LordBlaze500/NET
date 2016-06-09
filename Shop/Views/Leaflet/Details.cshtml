@@ -1,0 +1,57 @@
+﻿@model Shop.Models.Leaflet
+
+@{
+    ViewBag.Title = "Szczegóły ulotki";
+}
+
+<h2>Szczegóły ulotki</h2>
+
+<fieldset>
+    <legend>Ulotka</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LeafletTitle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LeafletTitle)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProductName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Content)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Content)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Colour)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Colour)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Width)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Width)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Height)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Height)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edytuj", "Edytuj", new { id=Model.Id }) |
+    @Html.ActionLink("Powrót do listy", "List")
+</p>

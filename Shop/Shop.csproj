@@ -194,6 +194,7 @@
     <Compile Include="Controllers\OrderApiController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\LeafletController.cs" />
     <Compile Include="Controllers\PromotionController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -207,6 +208,7 @@
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\Leaflet.cs" />
     <Compile Include="Models\Promotion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -341,6 +343,10 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Promotion\Edit.cshtml" />
+    <Content Include="Views\Leaflet\List.cshtml" />
+    <Content Include="Views\Leaflet\Add.cshtml" />
+    <Content Include="Views\Leaflet\Details.cshtml" />
+    <Content Include="Views\Leaflet\Edit.cshtml" />
     <Content Include="Views\Complaint\List.cshtml" />
     <Content Include="Views\Complaint\Add.cshtml" />
     <Content Include="Views\Complaint\Edit.cshtml" />
