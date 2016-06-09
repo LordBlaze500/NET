@@ -7,11 +7,11 @@ using Shop.Models;
 
 namespace Shop.Controllers
 {
-    public class NewsController: Controller
+    public class BirthdaysController: Controller
     {
         private Context _db;
 
-        public NewsController()
+        public BirthdaysController()
         {
             this._db = new Context();
         }
@@ -21,14 +21,14 @@ namespace Shop.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Message = "Newsy";
+            ViewBag.Message = "Urodziny";
             return View();
         }
 
         public ActionResult List()
         {
-            var Newsy = this._db.News;
-            return View(Newsy);
+            var Urodziny = this._db.Birthdays;
+            return View(Urodziny);
         }
 
         public ActionResult Add()
@@ -37,14 +37,14 @@ namespace Shop.Controllers
         }
 
         [HttpPost]
-        public ActionResult Add(News model)
+        public ActionResult Add(Birthdays model)
         {
             if (ModelState.IsValid)
             {
                 //model.NewsedDate = DateTime.Now;
-                this._db.News.Add(model);
+                this._db.Birthdays.Add(model);
                 this._db.SaveChanges();
-                TempData["message"] = "Dodano newsa";
+                TempData["message"] = "Dodano informacje o urodzinach użytkownika!";
                 return RedirectToAction("list");
             }
             else
@@ -59,21 +59,21 @@ namespace Shop.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            News News = _db.News.Find(id);
-            return View(News);
+            Birthdays Birthdays = _db.Birthdays.Find(id);
+            return View(Birthdays);
         }
 
         [HttpPost]
-        public ActionResult Edit(News model)
+        public ActionResult Edit(Birthdays model)
         {
             if (ModelState.IsValid)
             {
                 int id = (int)model.Id;
-                News News = this._db.News.Find(id);
-                _db.News.Remove(News);
-                this._db.News.Add(model);
+                Birthdays Birthdays = this._db.Birthdays.Find(id);
+                _db.Birthdays.Remove(Birthdays);
+                this._db.Birthdays.Add(model);
                 this._db.SaveChanges();
-                TempData["message"] = "News edytowany!";
+                TempData["message"] = "Urodziny edytowane!";
                 return RedirectToAction("list");
             }
             else
@@ -89,8 +89,8 @@ namespace Shop.Controllers
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            News n = _db.News.Find(id);
-            _db.News.Remove(n);
+            Birthdays n = _db.Birthdays.Find(id);
+            _db.Birthdays.Remove(n);
             _db.SaveChanges();
             return RedirectToAction("List");
         }
