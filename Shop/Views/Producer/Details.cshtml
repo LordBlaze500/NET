@@ -1,0 +1,36 @@
+﻿@model Shop.Models.Producer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Producent</h2>
+
+<fieldset>
+    <legend>Producer</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Imie)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Imie)
+    </div>
+
+    <div class="display-label">
+         <br />@Html.DisplayNameFor(model => model.Nazwisko)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nazwisko)
+    </div>
+
+    <div class="display-label">
+         <br />@Html.DisplayNameFor(model => model.Pesel)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pesel)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edytuj", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Wróć do listy", "List")
+</p>
