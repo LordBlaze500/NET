@@ -18,5 +18,6 @@ namespace Shop.Models
         public DbSet<Kategoria> Kategorie { get; set; }
         public DbSet<News> News { get; set; }
         public DbSet<Birthdays> Birthdays { get; set; }
+        public DbSet<Complaint> Complaints { get; set; }
     }
 }
