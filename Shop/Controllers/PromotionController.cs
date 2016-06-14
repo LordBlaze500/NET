@@ -42,9 +42,17 @@ namespace Shop.Controllers
             if (ModelState.IsValid)
             {
                 this._db.Promotions.Add(model);
-                this._db.SaveChanges();
-                TempData["message"] = "Dodano promocję.";
-                return RedirectToAction("list");
+                try
+                {
+                    this._db.SaveChanges();
+                    TempData["message"] = "Dodano promocję.";
+                    return RedirectToAction("list");
+                }
+                catch (Exception ex)
+                {
+                    TempData["message"] = "Nie dodano promocji - prawdopodobnie produkt o podanym ID nie istnieje";
+                    return View(model);
+                }
             }
             else
             {
@@ -59,22 +67,20 @@ namespace Shop.Controllers
             return View(Promotion);
         }
 
-        [HttpPost]
-        public ActionResult Edit(Promotion model)
+        [HttpPost, ActionName("Edit")]
+        public ActionResult EditPost(int id)
         {
-            if (ModelState.IsValid)
+            Promotion promotion = _db.Promotions.Find(id);
+            if (TryUpdateModel(promotion, "",
+                new string[] { "PromotionTitle", "DiscountPercent", "BeginningDate", "EndDate", "MaxQuantity" }))
             {
-                int id = (int)model.Id;
-                Promotion Promotion = this._db.Promotions.Find(id);
-                _db.Promotions.Remove(Promotion);
-                this._db.Promotions.Add(model);
                 this._db.SaveChanges();
                 TempData["message"] = "Edytowano promocję.";
                 return RedirectToAction("list");
             }
             else
             {
-                return View(model);
+                return View(promotion);
             }
         }
 
