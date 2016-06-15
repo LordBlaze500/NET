@@ -15,6 +15,7 @@ namespace Shop.Models
         [ForeignKey("Order")]
         [Display(Name = "Id zamówienia")]
         public virtual long OrderId { get; set; }
+        public virtual Order Order { get; set; }
         [Display(Name = "Data sprzedarzy")]
         public DateTime SaleDate { get; set; }
         [Display(Name = "Nr faktury")]

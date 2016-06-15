@@ -25,14 +25,16 @@ namespace Shop.Controllers
         }
 
         // GET api/orderapi/5
-        public Order Get(int id)
+        public String Get(int id)
         {
-            return _db.Orders.Find(id);
+            Order Order = _db.Orders.Find(id);
+            return Json.Encode(Order);
         }
 
         // POST api/orderapi
-        public HttpResponseMessage Post([FromBody]Order model)
+        public HttpResponseMessage Post([FromBody] string json)
         {
+            Order model = Json.Decode<Order>(json);
             if (ModelState.IsValid)
             {
                 model.OrderedDate = DateTime.Now;
@@ -59,6 +61,7 @@ namespace Shop.Controllers
             order.Phone = model.Phone;
             order.Quantity = model.Quantity;
             order.ShippingDate = model.ShippingDate;
+            order.Email = model.Email;
             this._db.SaveChanges();
         }
 

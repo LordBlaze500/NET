@@ -26,9 +26,10 @@ namespace Shop.Controllers
         }
 
         // GET api/complaintapi/5
-        public Complaint Get(int id)
+        public String Get(int id)
         {
-            return _db.Complaints.Find(id);
+            Complaint Complaint = _db.Complaints.Find(id);
+            return Json.Encode(Complaint);
         }
 
         // POST api/complaintapi
