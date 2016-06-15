@@ -60,22 +60,20 @@ namespace Shop.Controllers
             return View(Kategoria);
         }
 
-        [HttpPost]
-        public ActionResult Edit(Kategoria model)
+       [HttpPost, ActionName("Edit")]
+        public ActionResult EditPost(int id)
         {
-            if (ModelState.IsValid)
+            Kategoria kategoria = _db.Kategoria.Find(id);
+            if (TryUpdateModel(kategoria, "",
+                new string[] { "Name", "Description"}))
             {
-                int id = (int)model.Id;
-                Kategoria Kategoria = this._db.Kategorie.Find(id);
-                _db.Kategorie.Remove(Kategoria);
-                this._db.Kategorie.Add(model);
                 this._db.SaveChanges();
-                TempData["message"] = "Kategoria edytowana!";
+                TempData["message"] = "Edytowano kategorię";
                 return RedirectToAction("list");
             }
             else
             {
-                return View(model);
+                return View(kategoria);
             }
         }
 
@@ -88,5 +86,12 @@ namespace Shop.Controllers
             return RedirectToAction("List");
         }
 
+		    [HttpGet]
+        public ActionResult Details(int id)
+        {
+            Kategoria Kategoria = _db.Kategoria.Find(id);
+            return View(Kategoria);
+        }
+		
     }
 }
