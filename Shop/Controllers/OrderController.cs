@@ -49,6 +49,7 @@ namespace Shop.Controllers
             }
             else
             {
+                TempData["message"] = "Nie dodano zamówienia - prawdopodobnie produkt o podanym ID nie istnieje";
                 return View(model);
             }
         }

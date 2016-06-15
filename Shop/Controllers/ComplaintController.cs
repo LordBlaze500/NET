@@ -48,6 +48,7 @@ namespace Shop.Controllers
             }
             else
             {
+                TempData["message"] = "Nie dodano reklamacji - prawdopodobnie zamówienie o podanym ID nie istnieje";
                 return View(model);
             }
         }
