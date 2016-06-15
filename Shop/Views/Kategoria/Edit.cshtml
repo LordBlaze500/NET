@@ -1,12 +1,8 @@
 ﻿@model Shop.Models.Kategoria
 
-@{
-    ViewBag.Title = "Dodaj kategorię";
-}
-
-<b>@TempData["message"]</b>
-
-<h2>Dodaj kategorię</h2>
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -32,15 +28,11 @@
         </div>
 
         <p>
-            <input type="submit" value="Dodaj" />
+            <input type="submit" value="Edytuj" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Powrót do listy", "List")
+    @Html.ActionLink("Powrót do listy", "list")
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

@@ -1,12 +1,8 @@
 ﻿@model Shop.Models.News
 
-@{
-    ViewBag.Title = "Dodaj newsa";
-}
-
-<b>@TempData["message"]</b>
-
-<h2>Dodaj newsa</h2>
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -38,7 +34,7 @@
             @Html.EditorFor(model => model.NewsDate)
             @Html.ValidationMessageFor(model => model.NewsDate)
         </div>
-
+		
         <div class="editor-label">
             @Html.LabelFor(model => model.NewsAuthor)
         </div>
@@ -48,15 +44,11 @@
         </div>
 
         <p>
-            <input type="submit" value="Dodaj" />
+            <input type="submit" value="Edytuj" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Powrót do listy", "List")
+    @Html.ActionLink("Powrót do listy", "list")
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

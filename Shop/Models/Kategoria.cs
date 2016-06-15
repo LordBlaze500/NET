@@ -11,9 +11,12 @@ namespace Shop.Models
         [ScaffoldColumn(false)]
         public long Id { get; set; }
 
-        [Display(Name = "Nazwa")]
-        [StringLength(50, ErrorMessage = "Zbyt dużo znaków!!!")]
+        [Display(Name = "Nazwa kategorii")]
+        [StringLength(50, ErrorMessage = "Maksymalnie 50 znaków")]
         public string Name { get; set; }
 
+        [Display(Name = "Opis")]
+        [StringLength(500, ErrorMessage = "Maksymalnie 500 znaków")]
+        public string Description{ get; set; }
     }
 }

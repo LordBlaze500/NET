@@ -1,18 +1,22 @@
 ﻿@model IEnumerable<Shop.Models.News>
 
 @{
-    ViewBag.Title = "Newsy";
+    ViewBag.Title = "Lista newsów";
 }
 
-<h2>Istniejące newsy:</h2>
+<h2>Lista</h2>
+<b>@TempData["message"]</b>
 
 <p>
-    @Html.ActionLink("Dodaj nowy", "Add")
+    @Html.ActionLink("Dodaj newsa", "Add")
 </p>
-<table>
+<table border="1">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.NewsTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NewsContent)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.NewsDate)
@@ -27,6 +31,9 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.NewsTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NewsContent)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.NewsDate)
