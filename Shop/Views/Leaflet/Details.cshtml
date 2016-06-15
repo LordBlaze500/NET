@@ -17,10 +17,10 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.ProductName)
+         @Html.DisplayNameFor(model => model.ProductsId)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.ProductName)
+        @Html.DisplayFor(model => model.ProductsId)
     </div>
 
     <div class="display-label">
@@ -52,6 +52,6 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edytuj", "Edytuj", new { id=Model.Id }) |
+    @Html.ActionLink("Edytuj", "Edit", new { id=Model.Id }) |
     @Html.ActionLink("Powrót do listy", "List")
 </p>
