@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -10,6 +11,11 @@ namespace Shop.Models
     {
         [ScaffoldColumn(false)]
         public long Id { get; set; }
+
+        [ForeignKey("Producer")]
+        [Display(Name = "Id producenta")]
+        public virtual long ProducerId { get; set; }
+        public virtual Producer Producer { get; set; }
 
         [Display(Name = "Nazwa produktu")]
         [StringLength(50, ErrorMessage = "Zbyt dużo znaków!!!")]

@@ -4,33 +4,40 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Producent</h2>
+<h2>Detale</h2><br />
 
 <fieldset>
     <legend>Producer</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Imie)
+         <b>@Html.DisplayNameFor(model => model.Nazwa)</b>
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Imie)
+        @Html.DisplayFor(model => model.Nazwa)
     </div>
 
     <div class="display-label">
-         <br />@Html.DisplayNameFor(model => model.Nazwisko)
+         <b>@Html.DisplayNameFor(model => model.Adres)</b>
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Nazwisko)
+        @Html.DisplayFor(model => model.Adres)
     </div>
 
     <div class="display-label">
-         <br />@Html.DisplayNameFor(model => model.Pesel)
+         <b>@Html.DisplayNameFor(model => model.Nip)</b>
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Pesel)
+        @Html.DisplayFor(model => model.Nip)
+    </div>
+
+    <div class="display-label">
+         <b>@Html.DisplayNameFor(model => model.Regon)</b>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Regon)
     </div>
 </fieldset>
 <p>
     @Html.ActionLink("Edytuj", "Edit", new { id=Model.Id }) |
-    @Html.ActionLink("Wróć do listy", "List")
+    @Html.ActionLink("Powrót do listy", "List")
 </p>

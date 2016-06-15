@@ -43,9 +43,19 @@ namespace Shop.Controllers
             {
                 //model.AddDate = DateTime.Now;
                 this._db.Products.Add(model);
+                /*
                 this._db.SaveChanges();
                 TempData["message"] = "Dodano produkt.";
                 return RedirectToAction("list");
+                */
+                try {
+                    this._db.SaveChanges();
+                    TempData["message"] = "Dodano produkt.";
+                    return RedirectToAction("list");
+                } catch (Exception ex) {
+                    TempData["message"] = "Nie dodano produktu - prawdopodobnie producent o podanym ID nie istnieje";
+                    return View(model);
+                }
             }
             else
             {
@@ -77,22 +87,30 @@ namespace Shop.Controllers
             return View(product);
         }
 
+        /*
         [HttpPost]
         public ActionResult Edit(Products model)
+        */
+        [HttpPost, ActionName("Edit")]
+        public ActionResult EditPost(int id)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
+            Products products = _db.Products.Find(id);
+            if (TryUpdateModel(products, "",
+                new string[] { "ProductName", "Quantity", "Code", "Price", "VAT", "AddDate" }))
             {
-                int id = (int)model.Id;
-                Products product = this._db.Products.Find(id);
-                _db.Products.Remove(product);
-                this._db.Products.Add(model);
+                //int id = (int)model.Id;
+                //Products product = this._db.Products.Find(id);
+                //_db.Products.Remove(product);
+                //this._db.Products.Add(model);
                 this._db.SaveChanges();
                 TempData["message"] = "Edytowano produkt...";
                 return RedirectToAction("list");
             }
             else
             {
-                return View(model);
+                //return View(model);
+                return View(products);
             }
         }
 

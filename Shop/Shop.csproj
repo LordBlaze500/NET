@@ -191,6 +191,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KategoriaController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\ProducerApiController.cs" />
+    <Compile Include="Controllers\ProductsApiController.cs" />
     <Compile Include="Controllers\OrderApiController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProducerController.cs" />
@@ -353,10 +355,10 @@
     <Content Include="Views\Complaint\Add.cshtml" />
     <Content Include="Views\Complaint\Edit.cshtml" />
     <Content Include="Views\Complaint\Details.cshtml" />
-    <Content Include="Views\Producer\Edit.cshtml" />
+    <Content Include="Views\Producer\Add.cshtml" />
     <Content Include="Views\Producer\List.cshtml" />
     <Content Include="Views\Producer\Details.cshtml" />
-    <Content Include="Views\Producer\Add.cshtml" />
+    <Content Include="Views\Producer\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
