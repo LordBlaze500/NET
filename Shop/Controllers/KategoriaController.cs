@@ -63,7 +63,7 @@ namespace Shop.Controllers
        [HttpPost, ActionName("Edit")]
         public ActionResult EditPost(int id)
         {
-            Kategoria kategoria = _db.Kategoria.Find(id);
+            Kategoria kategoria = _db.Kategorie.Find(id);
             if (TryUpdateModel(kategoria, "",
                 new string[] { "Name", "Description"}))
             {
@@ -89,7 +89,7 @@ namespace Shop.Controllers
 		    [HttpGet]
         public ActionResult Details(int id)
         {
-            Kategoria Kategoria = _db.Kategoria.Find(id);
+            Kategoria Kategoria = _db.Kategorie.Find(id);
             return View(Kategoria);
         }
 		
