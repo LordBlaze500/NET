@@ -17,6 +17,11 @@ namespace Shop.Models
         public virtual long ProducerId { get; set; }
         public virtual Producer Producer { get; set; }
 
+        [ForeignKey("Kategoria")]
+        [Display(Name = "Id kategorii")]
+        public virtual long KategoriaId { get; set; }
+        public virtual Kategoria Kategoria { get; set; }
+
         [Display(Name = "Nazwa produktu")]
         [StringLength(50, ErrorMessage = "Zbyt dużo znaków!!!")]
         public string ProductName { get; set; }
