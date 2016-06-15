@@ -7,7 +7,7 @@ using Shop.Models;
 
 namespace Shop.Controllers
 {
-    public class KategoriaController : Controller
+    public class KategoriaController: Controller
     {
         private Context _db;
 
@@ -15,19 +15,20 @@ namespace Shop.Controllers
         {
             this._db = new Context();
         }
+
         //
         // GET: /Kategoria/
 
         public ActionResult Index()
         {
-            ViewBag.Message = "Witaj w serwisie MobielPost";
+            ViewBag.Message = "Kategoria";
             return View();
         }
 
         public ActionResult List()
         {
-            var kategoria = this._db.Kategorie;
-            return View(kategoria);
+            var Kategoriay = this._db.Kategoria;
+            return View(Kategoriay);
         }
 
         public ActionResult Add()
@@ -40,15 +41,58 @@ namespace Shop.Controllers
         {
             if (ModelState.IsValid)
             {
-                this._db.Kategorie.Add(model);
+                //model.KategoriaedDate = DateTime.Now;
+                this._db.Kategoria.Add(model);
                 this._db.SaveChanges();
-                TempData["message"] = "Zgłoszenie zostało przyjęte.";
+                TempData["message"] = "Dodano Kategorię";
                 return RedirectToAction("list");
             }
             else
             {
                 return View(model);
             }
+        }
+
+
+
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            Kategoria Kategoria = _db.Kategoria.Find(id);
+            return View(Kategoria);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Kategoria model)
+        {
+            if (ModelState.IsValid)
+            {
+                int id = (int)model.Id;
+                Kategoria Kategoria = this._db.Kategoria.Find(id);
+                _db.Kategoria.Remove(Kategoria);
+                this._db.Kategoria.Add(model);
+                this._db.SaveChanges();
+                TempData["message"] = "Kategoria edytowana!";
+                return RedirectToAction("list");
+            }
+            else
+            {
+                return View(model);
+            }
+        }
+
+
+
+
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            Kategoria n = _db.Kategoria.Find(id);
+            _db.Kategoria.Remove(n);
+            _db.SaveChanges();
+            return RedirectToAction("List");
         }
 
     }
