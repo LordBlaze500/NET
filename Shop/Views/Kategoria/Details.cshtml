@@ -1,0 +1,48 @@
+﻿@model Shop.Models.Kategoria
+
+@{
+    ViewBag.Title = "Szczegóły kategorii";
+}
+
+<style>
+    label
+    {
+        display: inline
+    }
+    .data
+    {
+        font-size: 20px
+    }
+</style>
+
+<h2>Szczegóły kategorii</h2>
+
+<table>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.Name)
+        </td>
+        <td>
+            <b class="data">@Html.DisplayFor(model => model.Name)</b>
+        </td>
+    </tr>
+ 
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.Description)
+        </td>
+        <td>
+            <b class="data">@Html.DisplayFor(model => model.Description)</b>
+        </td>
+    </tr>
+    
+   
+</table>
+
+<div>
+    @Html.ActionLink("Powrót do listy", "List")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

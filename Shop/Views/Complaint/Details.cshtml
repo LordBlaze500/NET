@@ -1,0 +1,50 @@
+﻿@model Shop.Models.Complaint
+
+@{
+    ViewBag.Title = "Szczegóły reklamacji";
+}
+
+<h2>Szczegóły reklamacji</h2>
+
+<fieldset>
+    <legend>Reklamacja</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProductCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SaleDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SaleDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Invoice)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Invoice)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProductName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DamageDesc)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DamageDesc)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edtyuj", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Lista", "List")
+</p>
