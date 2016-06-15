@@ -63,25 +63,22 @@ namespace Shop.Controllers
             return View(News);
         }
 
-        [HttpPost]
-        public ActionResult Edit(News model)
+         [HttpPost, ActionName("Edit")]
+        public ActionResult EditPost(int id)
         {
-            if (ModelState.IsValid)
+            News news = _db.News.Find(id);
+            if (TryUpdateModel(news, "",
+                new string[] { "NewsTitle", "NewsContent", "NewsDate", "NewsAuthor"}))
             {
-                int id = (int)model.Id;
-                News News = this._db.News.Find(id);
-                _db.News.Remove(News);
-                this._db.News.Add(model);
                 this._db.SaveChanges();
-                TempData["message"] = "News edytowany!";
+                TempData["message"] = "Edytowano newsa";
                 return RedirectToAction("list");
             }
             else
             {
-                return View(model);
+                return View(news);
             }
         }
-
 
 
 
@@ -95,5 +92,12 @@ namespace Shop.Controllers
             return RedirectToAction("List");
         }
 
+		[HttpGet]
+        public ActionResult Details(int id)
+        {
+            News News = _db.News.Find(id);
+            return View(News);
+        }
+		
     }
 }
