@@ -27,7 +27,7 @@ namespace Shop.Controllers
 
         public ActionResult List()
         {
-            var Kategoriay = this._db.Kategoria;
+            var Kategoriay = this._db.Kategorie;
             return View(Kategoriay);
         }
 
@@ -42,7 +42,7 @@ namespace Shop.Controllers
             if (ModelState.IsValid)
             {
                 //model.KategoriaedDate = DateTime.Now;
-                this._db.Kategoria.Add(model);
+                this._db.Kategorie.Add(model);
                 this._db.SaveChanges();
                 TempData["message"] = "Dodano Kategorię";
                 return RedirectToAction("list");
@@ -53,13 +53,10 @@ namespace Shop.Controllers
             }
         }
 
-
-
-
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            Kategoria Kategoria = _db.Kategoria.Find(id);
+            Kategoria Kategoria = _db.Kategorie.Find(id);
             return View(Kategoria);
         }
 
@@ -69,9 +66,9 @@ namespace Shop.Controllers
             if (ModelState.IsValid)
             {
                 int id = (int)model.Id;
-                Kategoria Kategoria = this._db.Kategoria.Find(id);
-                _db.Kategoria.Remove(Kategoria);
-                this._db.Kategoria.Add(model);
+                Kategoria Kategoria = this._db.Kategorie.Find(id);
+                _db.Kategorie.Remove(Kategoria);
+                this._db.Kategorie.Add(model);
                 this._db.SaveChanges();
                 TempData["message"] = "Kategoria edytowana!";
                 return RedirectToAction("list");
@@ -82,15 +79,11 @@ namespace Shop.Controllers
             }
         }
 
-
-
-
-
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            Kategoria n = _db.Kategoria.Find(id);
-            _db.Kategoria.Remove(n);
+            Kategoria n = _db.Kategorie.Find(id);
+            _db.Kategorie.Remove(n);
             _db.SaveChanges();
             return RedirectToAction("List");
         }

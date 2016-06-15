@@ -189,8 +189,10 @@
     <Compile Include="Controllers\ComplaintApiController.cs" />
     <Compile Include="Controllers\ComplaintController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KategoriaApiController.cs" />
     <Compile Include="Controllers\KategoriaController.cs" />
     <Compile Include="Controllers\LeafletApiController.cs" />
+    <Compile Include="Controllers\NewsApiController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ProducerApiController.cs" />
     <Compile Include="Controllers\ProductsApiController.cs" />

@@ -21,13 +21,13 @@ namespace Shop.Controllers
         // GET api/Kategoriaapi
         public IEnumerable<Kategoria> Get()
         {
-            return _db.Kategoria;
+            return _db.Kategorie;
         }
 
         // GET api/Kategoriaapi/5
         public String Get(int id)
         {
-            Kategoria Kategoria = _db.Kategoria.Find(id);
+            Kategoria Kategoria = _db.Kategorie.Find(id);
             return Json.Encode(Kategoria);
         }
 
@@ -37,7 +37,7 @@ namespace Shop.Controllers
             Kategoria model = Json.Decode<Kategoria>(json);
             if (ModelState.IsValid)
             {
-                this._db.Kategoria.Add(model);
+                this._db.Kategorie.Add(model);
                 this._db.SaveChanges();
                 var response = Request.CreateResponse<Kategoria>(HttpStatusCode.Created, model);
                 string url = Url.Route(null, new { id = model.Id });
@@ -55,7 +55,7 @@ namespace Shop.Controllers
         public void Put(int id, [FromBody]string json)
         {
             Kategoria model = Json.Decode<Kategoria>(json);
-            Kategoria Kategoria = _db.Kategoria.Find(id);
+            Kategoria Kategoria = _db.Kategorie.Find(id);
             Kategoria.Name = model.Name;
             Kategoria.Description = model.Description;
             this._db.SaveChanges();
@@ -64,8 +64,8 @@ namespace Shop.Controllers
         // DELETE api/Kategoriaapi/5
         public void Delete(int id)
         {
-            Kategoria Kategoria = _db.Kategoria.Find(id);
-            _db.Kategoria.Remove(Kategoria);
+            Kategoria Kategoria = _db.Kategorie.Find(id);
+            _db.Kategorie.Remove(Kategoria);
             _db.SaveChanges();
         }
     }
