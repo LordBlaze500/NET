@@ -4,6 +4,8 @@
     ViewBag.Title = "Dodaj produkt";
 }
 
+<b>@TempData["message"]</b>
+
 <h2>Dodaj produkt</h2>
 
 @using (Html.BeginForm()) {
@@ -19,6 +21,14 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.ProductName)
             @Html.ValidationMessageFor(model => model.ProductName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProducerId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProducerId)
+            @Html.ValidationMessageFor(model => model.ProducerId)
         </div>
 
         <div class="editor-label">

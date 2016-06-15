@@ -77,22 +77,27 @@ namespace Shop.Controllers
             return View(producer);
         }
 
-        [HttpPost]
-        public ActionResult Edit(Producer model)
+        //[HttpPost]
+        //public ActionResult Edit(Producer model)
+        [HttpPost, ActionName("Edit")]
+        public ActionResult EditPost(int id)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
+            Producer producer = _db.Producer.Find(id);
+            if (TryUpdateModel(producer, "",
+                new string[] { "Nazwa", "Adres", "Nip", "Regon" }))
             {
-                int id = (int)model.Id;
-                Producer producer = this._db.Producer.Find(id);
-                _db.Producer.Remove(producer);
-                this._db.Producer.Add(model);
+                //int id = (int)model.Id;
+                //Producer producer = this._db.Producer.Find(id);
+                //_db.Producer.Remove(producer);
+                //this._db.Producer.Add(model);
                 this._db.SaveChanges();
                 TempData["message"] = "Edytowano producenta...";
                 return RedirectToAction("list");
             }
             else
             {
-                return View(model);
+                return View(producer);
             }
         }
 

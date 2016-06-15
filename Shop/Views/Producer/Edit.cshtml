@@ -14,27 +14,35 @@
         <legend>Producer</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Imie)
+            @Html.LabelFor(model => model.Nazwa)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Imie)
-            @Html.ValidationMessageFor(model => model.Imie)
+            @Html.EditorFor(model => model.Nazwa)
+            @Html.ValidationMessageFor(model => model.Nazwa)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Nazwisko)
+            @Html.LabelFor(model => model.Adres)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Nazwisko)
-            @Html.ValidationMessageFor(model => model.Nazwisko)
+            @Html.EditorFor(model => model.Adres)
+            @Html.ValidationMessageFor(model => model.Adres)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Pesel)
+            @Html.LabelFor(model => model.Nip)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Pesel)
-            @Html.ValidationMessageFor(model => model.Pesel)
+            @Html.EditorFor(model => model.Nip)
+            @Html.ValidationMessageFor(model => model.Nip)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Regon)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Regon)
+            @Html.ValidationMessageFor(model => model.Regon)
         </div>
 
         <p>

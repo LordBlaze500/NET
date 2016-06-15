@@ -6,6 +6,12 @@
 
 <h2>Lista Produktów</h2>
 
+<b>@TempData["message"]</b>
+
+<style type="text/css">
+    th {padding: 20px;}
+</style>
+
 <p>
     @Html.ActionLink("Dodaj produkt", "Add")
 </p>
@@ -13,6 +19,12 @@
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProducerId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Quantity)
@@ -36,6 +48,12 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProducerId)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Quantity)
