@@ -42,9 +42,17 @@ namespace Shop.Controllers
             if (ModelState.IsValid)
             {
                 this._db.Leaflets.Add(model);
-                this._db.SaveChanges();
-                TempData["message"] = "Dodano ulotkę.";
-                return RedirectToAction("list");
+                try
+                {
+                    this._db.SaveChanges();
+                    TempData["message"] = "Dodano ulotkę.";
+                    return RedirectToAction("list");
+                }
+                catch (Exception ex)
+                {
+                    TempData["message"] = "Nie dodano ulotki - prawdopodobnie produkt o podanym ID nie istnieje";
+                    return View(model);
+                }
             }
             else
             {
@@ -59,22 +67,20 @@ namespace Shop.Controllers
             return View(Leaflet);
         }
 
-        [HttpPost]
-        public ActionResult Edit(Leaflet model)
+        [HttpPost, ActionName("Edit")]
+        public ActionResult EditPost(int id)
         {
-            if (ModelState.IsValid)
+            Leaflet leaflet = _db.Leaflets.Find(id);
+            if (TryUpdateModel(leaflet, "",
+                new string[] { "LeafletTitle", "Content", "Colour", "Width", "Height" }))
             {
-                int id = (int)model.Id;
-                Leaflet Leaflet = this._db.Leaflets.Find(id);
-                _db.Leaflets.Remove(Leaflet);
-                this._db.Leaflets.Add(model);
                 this._db.SaveChanges();
                 TempData["message"] = "Edytowano ulotkę.";
                 return RedirectToAction("list");
             }
             else
             {
-                return View(model);
+                return View(leaflet);
             }
         }
 

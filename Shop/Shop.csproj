@@ -190,6 +190,7 @@
     <Compile Include="Controllers\ComplaintController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KategoriaController.cs" />
+    <Compile Include="Controllers\LeafletApiController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\PromotionApiController.cs" />
     <Compile Include="Controllers\OrderApiController.cs" />

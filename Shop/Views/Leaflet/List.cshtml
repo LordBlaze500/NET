@@ -5,6 +5,7 @@
 }
 
 <h2>Lista ulotek</h2>
+<b>@TempData["message"]</b>
 
 <p>
     @Html.ActionLink("Dodaj ulotkę", "Add")
@@ -15,7 +16,7 @@
             @Html.DisplayNameFor(model => model.LeafletTitle)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ProductName)
+            @Html.DisplayNameFor(model => model.ProductsId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Content)
@@ -38,7 +39,7 @@
             @Html.DisplayFor(modelItem => item.LeafletTitle)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ProductName)
+            <a href="/Products/Details/@item.ProductsId">@Html.DisplayFor(modelItem => item.ProductsId)</a>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Content)
