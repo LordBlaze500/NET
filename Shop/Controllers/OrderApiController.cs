@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Shop.Models;
+using System.Web.Helpers;
 
 namespace Shop.Controllers
 {
@@ -24,9 +25,9 @@ namespace Shop.Controllers
         }
 
         // GET api/orderapi/5
-        public string Get(int id)
+        public Order Get(int id)
         {
-            return "value";
+            return _db.Orders.Find(id);
         }
 
         // POST api/orderapi
@@ -49,14 +50,24 @@ namespace Shop.Controllers
             }
         }
 
-        // PUT api/orderapi/5
-        public void Put(int id, [FromBody]string value)
+        // PUT api/Promotionapi/5
+        public void Put(int id, [FromBody]string json)
         {
+            Order model = Json.Decode<Order>(json);
+            Order order = _db.Orders.Find(id);
+            order.OrderedDate = model.OrderedDate;
+            order.Phone = model.Phone;
+            order.Quantity = model.Quantity;
+            order.ShippingDate = model.ShippingDate;
+            this._db.SaveChanges();
         }
 
         // DELETE api/orderapi/5
         public void Delete(int id)
         {
+            Order Order = _db.Orders.Find(id);
+            _db.Orders.Remove(Order);
+            _db.SaveChanges();
         }
     }
 }
